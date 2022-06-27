@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import NavBar from '../components/NavBar';
 import SearchField from '../components/SearchField';
+import { Typography } from '@material-ui/core';
+import QueryResult from '../components/QueryResult';
 
 const useStyles = makeStyles({
   root: {
@@ -13,6 +14,19 @@ const useStyles = makeStyles({
     alignItems: 'center',
     flexDirection: 'column',
   },
+  content: {
+    width: '90%',
+    height: 'calc(100vh - 220px)',
+  },
+  subText: {
+    fontFamily: 'Montserrat',
+    fontWight: '600',
+    width: '80%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
+    color: 'white',
+  },
 });
 
 function Home() {
@@ -20,6 +34,7 @@ function Home() {
 
   // State
   const [queryText, setQuerytext] = useState('');
+  const [results, setResults] = useState([]);
 
   const onFieldChangeHandler = (val) => {
     setQuerytext(val);
@@ -36,6 +51,9 @@ function Home() {
         onFieldChangeHandler={onFieldChangeHandler}
         query={queryText}
       />
+      <div className={classes.content}>
+        <QueryResult results={results} />
+      </div>
     </div>
   );
 }
