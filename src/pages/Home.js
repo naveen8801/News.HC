@@ -5,6 +5,7 @@ import { Typography } from '@material-ui/core';
 import QueryResult from '../components/QueryResult';
 import { getQueryResults } from '../api';
 import { ToastContainer, toast } from 'react-toastify';
+import NewsCard from '../components/NewsCard';
 
 const useStyles = makeStyles({
   root: {
@@ -47,7 +48,6 @@ function Home() {
     setLoading(true);
     if (queryText.trim().length === 0) {
       toast.error('Type a Valid Query');
-      return;
     } else {
       try {
         const { data } = await getQueryResults(queryText);
