@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import SearchField from '../components/SearchField';
 import { Typography } from '@material-ui/core';
 import QueryResult from '../components/QueryResult';
+import { getQueryResults } from '../api';
+import { ToastContainer, toast } from 'react-toastify';
 
 const useStyles = makeStyles({
   root: {
@@ -40,9 +42,21 @@ function Home() {
     setQuerytext(val);
   };
 
-  const onClickSendBtnHandler = () => {
-    console.log(queryText);
+  const onClickSendBtnHandler = async () => {
+    if (queryText.trim().length === 0) {
+      toast.error('Type a Valid Query');
+      return;
+    } else {
+      const { data } = await getQueryResults(queryText);
+      if (data.hits && data.hits.length > 0) {
+        setResults(data.hits);
+      } else {
+        toast.error('No Results For this Query !');
+      }
+    }
   };
+
+  console.log(results);
 
   return (
     <div className={classes.root}>
