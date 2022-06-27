@@ -9,7 +9,7 @@ function routes() {
       element: <Home />,
     },
     {
-      path: '/detail',
+      path: '/detail/:objectID',
       element: <Detail />,
     },
   ];

@@ -49,10 +49,14 @@ function Home() {
       toast.error('Type a Valid Query');
       return;
     } else {
-      const { data } = await getQueryResults(queryText);
-      if (data.hits && data.hits.length > 0) {
-        setResults(data.hits);
-      } else {
+      try {
+        const { data } = await getQueryResults(queryText);
+        if (data.hits && data.hits.length > 0) {
+          setResults(data.hits);
+        } else {
+          toast.error('No Results For this Query !');
+        }
+      } catch (error) {
         toast.error('No Results For this Query !');
       }
     }
