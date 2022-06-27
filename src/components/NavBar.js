@@ -6,10 +6,8 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     height: '60px',
-    position: 'fixed',
     display: 'flex',
     flexDirection: 'row',
-    padding: '0 2rem',
     alignItems: 'center',
   },
   title: {
@@ -17,6 +15,7 @@ const useStyles = makeStyles({
     fontWeight: '900',
     fontSize: '29px',
     color: '#FF5151',
+    marginLeft: '2rem',
   },
   span: {
     fontFamily: 'Montserrat',
