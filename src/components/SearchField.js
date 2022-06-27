@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     margin: '2rem 0',
+    borderRadius: '0.5rem',
   },
   input: {
     width: '100%',

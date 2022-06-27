@@ -37,12 +37,14 @@ function Home() {
   // State
   const [queryText, setQuerytext] = useState('');
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const onFieldChangeHandler = (val) => {
     setQuerytext(val);
   };
 
   const onClickSendBtnHandler = async () => {
+    setLoading(true);
     if (queryText.trim().length === 0) {
       toast.error('Type a Valid Query');
       return;
@@ -54,9 +56,8 @@ function Home() {
         toast.error('No Results For this Query !');
       }
     }
+    setLoading(false);
   };
-
-  console.log(results);
 
   return (
     <div className={classes.root}>
@@ -66,7 +67,7 @@ function Home() {
         query={queryText}
       />
       <div className={classes.content}>
-        <QueryResult results={results} />
+        <QueryResult loading={loading} results={results} />
       </div>
     </div>
   );

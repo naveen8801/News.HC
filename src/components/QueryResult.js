@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({
   root: {
@@ -24,19 +25,27 @@ const useStyles = makeStyles({
 });
 
 function QueryResult(props) {
-  const { results } = props;
+  const { results, loading } = props;
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {results.length === 0 ? (
-        <Typography className={classes.subText}>
-          <i>
-            {' '}
-            No data :( <br></br> Please make a Query !
-          </i>
-        </Typography>
+      {loading ? (
+        <>
+          <CircularProgress style={{ color: '#FF5151' }} />
+        </>
       ) : (
-        <></>
+        <>
+          {results.length === 0 ? (
+            <Typography className={classes.subText}>
+              <i>
+                {' '}
+                No data :( <br></br> Please make a Query !
+              </i>
+            </Typography>
+          ) : (
+            <></>
+          )}
+        </>
       )}
     </div>
   );
