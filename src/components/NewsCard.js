@@ -4,6 +4,7 @@ import { Typography, Card } from '@material-ui/core';
 import moment from 'moment';
 import userIcon from './../assets/author.svg';
 import linkIcon from './../assets/link.svg';
+import { useNavigate, Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -47,48 +48,49 @@ const useStyles = makeStyles({
 });
 
 function NewsCard(props) {
-  const { url, title, created_at, text, author } = props;
+  const { url, title, created_at, text, author, id } = props;
+  let navigate = useNavigate();
   const classes = useStyles();
   return (
-    // <a className={classes.link} href={url} target="__blank">
-    <Card className={classes.root}>
-      <Typography className={classes.title}>{title}</Typography>
-      <Typography className={classes.time}>
-        <i> {moment().fromNow(created_at)}</i>
-      </Typography>
-      <p>{text}</p>
-      <div className={classes.bottom}>
-        <Typography
-          style={{
-            justifyContent: 'cenetr',
-            alingItems: 'center',
-            display: 'flex',
-          }}
-          className={classes.time}
-        >
-          <img src={userIcon} style={{ width: '23px', height: '23px' }} />
-          {author}
+    <Link className={classes.link} to={`..//detail/${id}`}>
+      <Card className={classes.root}>
+        <Typography className={classes.title}>{title}</Typography>
+        <Typography className={classes.time}>
+          <i> {moment().fromNow(created_at)}</i>
         </Typography>
-        <Typography
-          style={{
-            justifyContent: 'center',
-            alingItems: 'center',
-            display: 'flex',
-          }}
-          className={classes.time}
-        >
-          <img
-            className={classes.img}
-            src={linkIcon}
-            style={{ width: '23px', height: '23px' }}
-            onClick={() => {
-              window.open(url, '_blank');
+        <p>{text}</p>
+        <div className={classes.bottom}>
+          <Typography
+            style={{
+              justifyContent: 'cenetr',
+              alingItems: 'center',
+              display: 'flex',
             }}
-          />
-        </Typography>
-      </div>
-    </Card>
-    // </a>
+            className={classes.time}
+          >
+            <img src={userIcon} style={{ width: '23px', height: '23px' }} />
+            {author}
+          </Typography>
+          <Typography
+            style={{
+              justifyContent: 'center',
+              alingItems: 'center',
+              display: 'flex',
+            }}
+            className={classes.time}
+          >
+            <img
+              className={classes.img}
+              src={linkIcon}
+              style={{ width: '23px', height: '23px' }}
+              onClick={() => {
+                window.open(url, '_blank');
+              }}
+            />
+          </Typography>
+        </div>
+      </Card>
+    </Link>
   );
 }
 

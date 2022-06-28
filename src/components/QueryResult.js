@@ -51,6 +51,7 @@ function QueryResult(props) {
             <>
               {results.map((item, i) => (
                 <NewsCard
+                  id={item.objectID}
                   url={item.url || ''}
                   title={item.title || ''}
                   created_at={item.created_at || ''}
