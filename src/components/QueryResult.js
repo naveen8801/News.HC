@@ -50,7 +50,15 @@ function QueryResult(props) {
           ) : (
             <>
               {results.map((item, i) => (
-                <NewsCard key={i} data={item} />
+                <NewsCard
+                  url={item.url || ''}
+                  title={item.title || ''}
+                  created_at={item.created_at || ''}
+                  text={item.text || ''}
+                  key={i}
+                  author={item.author}
+                  data={item}
+                />
               ))}
             </>
           )}
