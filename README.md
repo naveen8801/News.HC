@@ -1,6 +1,7 @@
 ### News.HC
 
 A website to get all latest tech and hacking news.
+Deployed Link -  <a href="https://news-hc.netlify.app/"> Website </a>
 
 ### Dependencies
 
@@ -11,8 +12,13 @@ A website to get all latest tech and hacking news.
 ### Local Setup
 ```
 git clone https://github.com/naveen8801/News.HC.git
+```
+
+```
 cd news-hc
 npm install
+
+```
 npm start
 ```
 Application will start on localhost:3000/
