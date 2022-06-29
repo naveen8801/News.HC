@@ -13,12 +13,12 @@ Deployed Link -  <a href="https://news-hc.netlify.app/"> Website </a>
 ```
 git clone https://github.com/naveen8801/News.HC.git
 ```
-
 ```
 cd news-hc
 npm install
-
+```
 ```
 npm start
 ```
+
 Application will start on localhost:3000/
