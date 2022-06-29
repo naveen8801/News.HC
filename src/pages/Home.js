@@ -32,6 +32,8 @@ const useStyles = makeStyles({
   },
 });
 
+const keywords = ['Laptop', 'USA', 'IAS', 'RAW', 'NSA', 'ISRO'];
+
 function Home() {
   const classes = useStyles();
 
@@ -71,7 +73,12 @@ function Home() {
         query={queryText}
       />
       <div className={classes.content}>
-        <QueryResult loading={loading} results={results} />
+        <QueryResult
+          setQuerytext={setQuerytext}
+          keywords={keywords}
+          loading={loading}
+          results={results}
+        />
       </div>
     </div>
   );
