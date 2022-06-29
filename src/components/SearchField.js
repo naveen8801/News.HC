@@ -47,7 +47,7 @@ function SearchField(props) {
         className={classes.input}
         variant="outlined"
       >
-        <InputLabel htmlFor="outlined-input">Query</InputLabel>
+        <InputLabel htmlFor="outlined-input">Search</InputLabel>
         <OutlinedInput
           size="small"
           id="outlined"
@@ -55,7 +55,7 @@ function SearchField(props) {
           onChange={(e) => onFieldChangeHandler(e.target.value)}
           startAdornment={<InputAdornment position="start"></InputAdornment>}
           labelWidth={60}
-          placeholder="Type Your Query Here"
+          placeholder="Type Search Keyword"
           InputProps={{
             className: classes.input,
           }}

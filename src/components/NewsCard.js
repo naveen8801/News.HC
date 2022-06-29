@@ -58,7 +58,7 @@ function NewsCard(props) {
         <Typography className={classes.time}>
           <i> {moment().fromNow(created_at)}</i>
         </Typography>
-        <p>{text}</p>
+        <p>{text.trim().length > 0 ? text : <i>No text</i>}</p>
         <div className={classes.bottom}>
           <Typography
             style={{

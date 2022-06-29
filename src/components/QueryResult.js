@@ -44,7 +44,7 @@ function QueryResult(props) {
             <Typography className={classes.subText}>
               <i>
                 {' '}
-                No data :( <br></br> Please make a Query !
+                No data :( <br></br> Please search a keyword !
               </i>
             </Typography>
           ) : (
